@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>RP Login - RP BookLink</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <div class="section-box">
+      <h2>RP Staff/Student Login</h2>
+      <p class="subtitle">Log in to access RP-exclusive features and manage your account.</p>
+      <form action="/rp-login" method="POST" class="rp-login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+        <button type="submit" class="button" >RP Log In</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+

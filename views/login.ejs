@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>Login - RP BookLink</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <div class="section-box">
+      <h2>Log in</h2>
+      <p class="subtitle">Access your personalized page and order status!</p>
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+        <button type="submit" class="button">Log in</button>
+      </form>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+
+  <script>
+    // JavaScript to redirect the user to homepage when the "Log in" button is clicked
+    document.getElementById('loginBtn').addEventListener('click', function(e) {
+      // Prevent form submission
+      e.preventDefault();
+
+      // Redirect to homepage immediately
+      window.location.href = '/homepage';  // Change '/' to the appropriate route for homepage.ejs if needed
+    });
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <h1>Welcome to the Admin Dashboard</h1>
+  <p>You are logged in as an Admin!</p>
+
+  <!-- Admin-specific content -->
+  <h2>Manage Orders</h2>
+  <ul>
+    <li><a href="/adminorders">View Orders</a></li>
+    
+  </ul>
+
+  <!-- Optionally add a logout button -->
+  <form action="/">
+    <button type="submit">Logout</button>
+  </form>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

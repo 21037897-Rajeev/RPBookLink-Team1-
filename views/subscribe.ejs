@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>Subscribe - RP BookLink</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <div class="section-box">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p class="subtitle">Get the latest updates and offers directly to your inbox!</p>
+      
+      <!-- Subscription Form -->
+      <form action="/subscribe" method="POST">
+        <div class="form-group">
+          <label for="email">Enter your email:</label>
+          <input type="email" id="email" name="email" placeholder="Your email address" required />
+        </div>
+        <button type="submit" class="button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+</body>
+</html>

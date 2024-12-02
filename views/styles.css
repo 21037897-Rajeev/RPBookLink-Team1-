@@ -1,0 +1,106 @@
+body {
+  background-color: #212121;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #000;
+  padding: 1rem 1.5rem;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav .nav-link.btn-subscribe {
+  color: #fff;
+}
+
+.navbar-brand img {
+  height: 60px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.25rem;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #aaa;
+}
+
+.navbar-nav {
+  margin-left: 0;
+}
+
+.navbar-right {
+  margin-left: auto;
+}
+
+.hero-section {
+  height: 50vh;
+  position: relative;
+  background: url('/placeholder.svg') no-repeat center center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.team-member img {
+  border-radius: 50%;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #000;
+  border: #443c0d;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #515151;
+}
+
+.btn-subscribe {
+  background-color: #443c0d;
+  color: #000;
+}
+
+.btn-subscribe:hover {
+  background-color: #5b626a;
+}
+
+.hero-title {
+  font-weight: bold;
+  color: #ffffff; /* Bright yellow for better visibility */
+}
+
+.hero-subtitle {
+  font-weight: bold;
+  color: #fbf9f6; /* Orange color for better visibility */
+}
+footer {
+        background-color: #000;
+        padding: 1rem 0;
+        color: #fff;
+        text-align: center;
+    }
+
+footer a {
+        color: #fff;
+        transition: color 0.3s;
+    }
+
+footer a:hover {
+        color: #aaa;
+    }

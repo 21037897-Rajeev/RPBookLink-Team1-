@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>Email Verification - RP BookLink</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  
+  <div class="verification-box">
+    <h2>Email Verification</h2>
+    <p>We have sent a verification code to your email. Please check your inbox and enter the code below.</p>
+    <form action="/verify" method="post">
+      <input type="text" name="code" maxlength="6" required placeholder="- - - - - -">
+      <button type="submit" class="button">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
+<form id="verification-form" action="/verify" method="POST">
+    <div class="code-input">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+    </div>
+    <button type="submit" class="btn">Submit</button>
+</form>
+<%- include('partials/footer') %>
+

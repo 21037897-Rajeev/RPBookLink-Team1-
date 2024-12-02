@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Order Management</title>
+    <style>
+        /* Styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .order-table th, .order-table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .order-table th {
+            background-color: blue;
+            color: white;
+        }
+        .action-btns {
+            display: flex;
+            justify-content: space-around;
+        }
+        .action-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="/adminpage" class="admin-button"> Admin</a>
+    <h1>Admin - Manage Orders</h1>
+
+<!-- Admin Order Management -->
+<table class="order-table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Order Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (orders && orders.length > 0) { %>
+            <% orders.forEach(order => { %>
+                <tr>
+                    <td><%= order.orderId %></td>
+                    <td><%= order.productName %></td>
+                    <td><%= order.orderProductQuantity %></td>
+                    <td><%= order.orderDate %></td>
+                    <td>
+                        <!-- Dropdown to change status -->
+                        <form action="/admin/orders/status/<%= order.orderId %>" method="POST">
+                            <select name="status">
+                                <option value="To Ship" <%= order.status === 'To Ship' ? 'selected' : '' %>>To Ship</option>
+                                <option value="To Receive" <%= order.status === 'To Receive' ? 'selected' : '' %>>To Receive</option>
+                            </select>
+                            <button type="submit" class="action-btn">Update Status</button>
+                        </form>
+                    </td>
+                    <td class="action-btns">
+                        <!-- Delete Order -->
+                        <form action="/admin/orders/delete/<%= order.orderId %>" method="POST" style="display:inline;">
+                            <button type="submit" class="action-btn delete-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="6">No orders found.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+</body>
+</html>

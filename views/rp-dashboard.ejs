@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>RP Dashboard</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="container">
+    <h2>Welcome, <%= username %>!</h2>
+    <p>This is your RP Dashboard.</p>
+    <a href="/logout" class="button">Logout</a>
+  </div>
+</body>
+<%- include('partials/footer') %>
+</html>

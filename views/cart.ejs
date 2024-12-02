@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: black;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group button {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar2') %><br><br>
+            <!-- Back to Categories Button -->
+        <a href="/categories" class="btn btn-secondary" style="margin-bottom: 20px;">Back to Categories</a>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+    
+
+        <h2>Cart Items</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (cartItems && cartItems.length > 0) { %>
+                    <% cartItems.forEach(item => { %>
+                        <tr>
+                            <td><%= item.id %></td>
+                            <td><%= item.name %></td>
+                            <td>$<%= item.price.toFixed(2) %></td> <!-- price formatted to two decimal places -->
+                            <td><%= item.quantity %></td>
+                            <td>$<%= (item.price * item.quantity).toFixed(2) %></td>
+                            <td>
+                                <form method="POST" action="/cart/update/<%= item.id %>" style="display: inline;">
+                                    <input type="number" name="quantity" value="<%= item.quantity %>" min="1" required>
+                                    <button type="submit">Update</button>
+                                </form>
+                                <form method="POST" action="/cart/delete/<%= item.id %>" style="display: inline;">
+                                    <button type="submit" class="remove-btn">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="6">No items in the cart.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+ 
+        <!-- Checkout Button -->
+        <div class="form-group">
+            <form method="POST" action="/cart/checkout">
+                <button type="submit">Checkout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
